@@ -16,9 +16,9 @@ function App() {
 
   const difficulties = ["easy", "meadium", "hard"]
 
-  return (
-    <>
-      {selectedCategory === null ? (
+  function renderCategories() {
+    return (
+
         <section className="category-card-container">
           {categories.map(({ categoryName, id }) => (
             <CategoryCard
@@ -29,19 +29,44 @@ function App() {
             />
           ))}
         </section>
-      ) : (
-        <>  {/* ✅ Agregamos un fragmento para contener múltiples elementos */}
-          <h2>Selecciona una dificultad</h2>
-          {difficulties?.map((difficulty) => (  // ✅ Corrección de la sintaxis de map()
-            <DifficultyCard
-              key={difficulty}
-              difficulty={difficulty}
-              onSelectDifficulty={() => setSelectedDifficulty(difficulty)}
-            />
-          ))}
+      
+    );
+  }
+  
+  function renderDifficulties() {
+    return (
+      <section>
+        <h2>Selecciona una dificultad</h2>
+        {difficulties?.map((difficulty) => (  // ✅ Corrección de la sintaxis de map()
+          <DifficultyCard
+            key={difficulty}
+            difficulty={difficulty}
+            onSelectDifficulty={() => setSelectedDifficulty(difficulty)}
+          />
+        ))}
+      </section>
+    )
+  }
 
-        </>
-      )}
+  return (
+    <>
+      {selectedCategory === null && 
+        (
+        renderCategories()
+        )  
+      }
+      {
+        selectedCategory != null && (
+          
+            renderDifficulties()
+          
+        )
+      }
+      {/*
+        selectedDifficulty !== null (
+          // TODO ADD renderQuestions
+        )
+      */}
     </>
   );
 }
