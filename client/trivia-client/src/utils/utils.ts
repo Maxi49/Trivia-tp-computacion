@@ -38,12 +38,12 @@ const categories: Record<string, number | object> = {
  * @param difficulty 
  * @returns url completa para la solicitud 
  */
-export function generateUrl(amount: number, category: number, difficulty: string) {   
+export function generateUrl(amount: number = 5, category: number, difficulty: string) {   
   let url = `https://opentdb.com/api.php?amount=${amount}`;
   
   if (category) url += `&category=${category}`;
   if (difficulty) url += `&difficulty=${difficulty}`;
-  url += `&type=multiple-choice`;
+  url += `&type=multiple`;
   
   return url;
 }

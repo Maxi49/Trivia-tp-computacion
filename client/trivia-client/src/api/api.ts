@@ -9,15 +9,15 @@ import { generateUrl, getCategory } from "../utils/utils"
  * @param type 
  * @returns 
  */
-export async function getQuestions(amount: number, category: string | number, difficulty: string) {
+export async function getQuestionsApi(amount: number, category: string | number, difficulty: string) {
   try {
     const returnedCategory = getCategory(category as string);
 
     const url = generateUrl(amount, returnedCategory as number, difficulty);
 
-    const { data } = await axios.get(url as string); 
+    const { data } = await axios.get(url); 
     
-    return data.questions
+    return data.results
   } catch (error) {
     console.error("Error en getQuestions:", error);
     throw error; 

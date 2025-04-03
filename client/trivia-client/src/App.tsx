@@ -1,6 +1,6 @@
 import './App.css'
 import { useState } from "react"
-import { CategoryCard } from './OptionCards';
+import { CategoryCard, getQuestion } from './OptionCards';
 import { DifficultyCard } from './OptionCards';
 
 function App() {
@@ -33,6 +33,10 @@ function App() {
     );
   }
   
+  async function questions() {
+    await getQuestion()
+  }
+
   function renderDifficulties() {
     return (
       <section>
@@ -50,13 +54,13 @@ function App() {
 
   return (
     <>
-      {selectedCategory === null && 
+      {!selectedCategory && 
         (
         renderCategories()
         )  
       }
       {
-        selectedCategory != null && (
+        selectedCategory && (
           
             renderDifficulties()
           
@@ -67,6 +71,9 @@ function App() {
           // TODO ADD renderQuestions
         )
       */}
+      <button onClick={() => questions()}>
+        clickea
+      </button>
     </>
   );
 }
