@@ -1,3 +1,4 @@
+import { getCategory } from "./utils/utils";
 
 type CategoryCardProps = {
     categoryName: string;
@@ -28,3 +29,7 @@ export function DifficultyCard({ difficulty, onSelectDifficulty }: DifficultyCar
 }
 
 export default CategoryCard;
+
+export function QuestionsCard() {
+
+}
