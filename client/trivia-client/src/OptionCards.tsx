@@ -1,4 +1,4 @@
-import { getQuestionsApi } from "./api/api";
+
 
 type CategoryCardProps = {
     categoryName: string;
@@ -29,8 +29,3 @@ export function DifficultyCard({ difficulty, onSelectDifficulty }: DifficultyCar
 }
 
 export default CategoryCard;
-
-export async function getQuestion() {
-  const questions = await getQuestionsApi(10, "history", "easy")
-  console.log(questions)
-}
