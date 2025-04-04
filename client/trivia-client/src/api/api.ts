@@ -1,5 +1,5 @@
 import axios from "axios"
-import { generateUrl, getCategory } from "../utils/utils"
+import { generateUrl } from "../utils/utils"
 
 /**
  * 
@@ -9,11 +9,9 @@ import { generateUrl, getCategory } from "../utils/utils"
  * @returns {object} respuesta de la API con las preguntas
  * @throws {Error} error si la solicitud falla
  */
-export async function getQuestionsApi(amount: number, category: string, difficulty: string) {
+export async function getQuestionsApi(amount: number, category: number, difficulty: string) {
   try {
-    const returnedCategory = getCategory(category as string);
-
-    const url = generateUrl(amount, returnedCategory as number, difficulty);
+    const url = generateUrl(amount, category, difficulty);
 
     const { data } = await axios.get(url); 
     

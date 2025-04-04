@@ -1,4 +1,4 @@
-const categories: Record<string, number | object> = {
+export const categories: Record<string, number | object> = {
   "general knowledge": 9,
   "entertainment": {
     "books": 10,
