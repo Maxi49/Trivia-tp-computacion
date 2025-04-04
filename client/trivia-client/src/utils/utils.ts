@@ -33,10 +33,10 @@ const categories: Record<string, number | object> = {
 
 /**
  * 
- * @param amount 
- * @param category 
- * @param difficulty 
- * @returns url completa para la solicitud 
+ * @param {number} amount cantidad de preguntas a solicitar
+ * @param {number} category categoria de las preguntas
+ * @param {string} difficulty dificultad de las preguntas
+ * @returns {string} url completa para la solicitud 
  */
 export function generateUrl(amount: number = 5, category: number, difficulty: string) {   
   let url = `https://opentdb.com/api.php?amount=${amount}`;
@@ -50,8 +50,8 @@ export function generateUrl(amount: number = 5, category: number, difficulty: st
 
 /**
  * 
- * @param category 
- * @returns id de categoria o undefined si no encuentra la categoria especificada
+ * @param {string} category 
+ * @returns {string} id de categoria o undefined si no encuentra la categoria especificada
  */
 export function getCategory(category: string): number | undefined { 
   const [principalCategory, subCategory] = category.toLowerCase().split(":").map(c => c.trim())

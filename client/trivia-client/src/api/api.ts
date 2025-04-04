@@ -3,13 +3,13 @@ import { generateUrl, getCategory } from "../utils/utils"
 
 /**
  * 
- * @param amount 
- * @param category 
- * @param difficulty 
- * @param type 
- * @returns 
+ * @param {number} amount 
+ * @param {string} category 
+ * @param {string} difficulty   
+ * @returns {object} respuesta de la API con las preguntas
+ * @throws {Error} error si la solicitud falla
  */
-export async function getQuestionsApi(amount: number, category: string | number, difficulty: string) {
+export async function getQuestionsApi(amount: number, category: string, difficulty: string) {
   try {
     const returnedCategory = getCategory(category as string);
 

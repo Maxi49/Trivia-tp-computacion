@@ -22,3 +22,4 @@ function App() {
   );
 }
 export default App
+// Paz mira -> vos podes mover las routes en el componente game directamente porq tecnicamente a partir de ahi es que se empiezan a renderizar las cosas
