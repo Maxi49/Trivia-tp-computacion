@@ -1,6 +1,8 @@
 export const Game = () => {
-    return (<>
+  return (
+      <>
         <h1>Click en el boton play para jugar</h1>
-    </>)
+      </>
+  )
 };
 export default Game

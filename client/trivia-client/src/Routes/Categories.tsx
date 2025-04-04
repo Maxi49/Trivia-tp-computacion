@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { CategoryCard } from "../OptionCards";
+import { createContext } from "react";
+
 
 export const Categories = () => {
     const [selectedCategory, setSelectedCategory] = useState<number | null>(null);
@@ -12,6 +14,10 @@ export const Categories = () => {
         { categoryName: "celebrities", id: 26 }
     ];
 
+    function saveContext() {
+        const GameContext = createContext(selectedCategory)
+    }
+
     return (
         <>
             <section className="category-card-container">
@@ -20,7 +26,7 @@ export const Categories = () => {
                         key={id}
                         categoryName={categoryName}
                         id={id}
-                        onSelectCategory={(id) => setSelectedCategory(id)}
+                        onSelectCategory={(id) => {setSelectedCategory(id), saveContext()}}
                     />
                 ))}
             </section>
