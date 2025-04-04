@@ -1,5 +1,3 @@
-import axios from "axios";
-
 const categories: Record<string, number | object> = {
   "general knowledge": 9,
   "entertainment": {
