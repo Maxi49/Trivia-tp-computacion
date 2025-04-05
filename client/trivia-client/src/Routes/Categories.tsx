@@ -34,7 +34,11 @@ export const Categories = () => {
                               key={id}
                               categoryName={categoryName}
                               id={id}
-                              onSelectCategory={(id) => setSelectedCategory(id)}
+                              onSelectCategory={(id) => {
+                                setSelectedCategory(id)
+                              }
+
+                              }
                           />
                       );
                   } 

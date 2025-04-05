@@ -51,17 +51,3 @@ export function generateUrl(amount: number = 5, category: number, difficulty: st
  * @param {string} category 
  * @returns {string} id de categoria o undefined si no encuentra la categoria especificada
  */
-export function getCategory(category: string): number | undefined { 
-  const [principalCategory, subCategory] = category.toLowerCase().split(":").map(c => c.trim())
-  
-  if(!subCategory) {
-    const id = (categories[principalCategory]) as number
-    return id
-  }
-
-  if (typeof categories[principalCategory] === "object" && categories[principalCategory] !== null) {
-    const id = (categories[principalCategory] as Record<string, number>)[subCategory];
-    return id
-  }
-  return undefined
-}

@@ -9,8 +9,8 @@ import { TriviaProvider } from './context/TriviaContext.tsx';
 function App() {
   return (
     <>
-      <Router>
         <TriviaProvider>
+      <Router>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/categories" element={<Categories />} />
@@ -18,8 +18,8 @@ function App() {
             <Route path="/game" element={<Game />} />
             <Route path="*" element={<h1>Página no encontrada</h1>} />
           </Routes>
-        </TriviaProvider>
       </Router>
+        </TriviaProvider>
     </>
   );
 }

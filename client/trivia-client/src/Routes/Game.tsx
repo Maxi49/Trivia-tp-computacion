@@ -1,16 +1,19 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getQuestionsApi } from "../api/api";
 import { useTriviaContext } from "../context/TriviaContext";
 
 export const Game = () => {
   const { selectedDifficulty , selectedCategory} = useTriviaContext();
-  console.log (selectedCategory);
+
+  const [results, setResults] = useState<[] | undefined>([]);
   useEffect(() => {
     const getQuestionsFromApi = async () => {
-      await getQuestionsApi(5, selectedCategory as number, selectedDifficulty as string)
+      const results = await getQuestionsApi(5, selectedCategory as number, selectedDifficulty as string)
+      setResults(results)
     }
     getQuestionsFromApi()
   }, [selectedCategory, selectedDifficulty])
+  console.log("results: ", results)
 
 
   return (<>
