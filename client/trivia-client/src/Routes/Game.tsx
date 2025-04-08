@@ -17,8 +17,11 @@ type Question = {
 function shuffleAnswers(incorrect_answers: string[], correct_answer: string) {
   const answers = [...incorrect_answers, correct_answer];
   //spread para unir todo en un array
-
-  return answers.sort(() => Math.random() - 0.5)
+  const shuffled = answers.sort(() => Math.random() - 0.5)
+  return {
+    options: shuffled,
+    correct: correct_answer
+  };
 }
 
 export const Game = () => {
@@ -52,15 +55,19 @@ export const Game = () => {
 
   }
 
+  const { options, correct } = shuffleAnswers(
+    results[currentIndex].incorrect_answers,
+    results[currentIndex].correct_answer
+  );
+
+
   return (
     <>
 
       <QuestionCard
         question={he.decode(results[currentIndex].question)}
-        options={shuffleAnswers(
-          results[currentIndex].incorrect_answers,
-          results[currentIndex].correct_answer,
-        )}
+        options={options}
+        correct_answer={correct}
         onNext={handleNext}
       />
 
