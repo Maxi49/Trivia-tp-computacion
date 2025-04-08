@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getQuestionsApi } from "../api/api";
 import { useTriviaContext } from "../context/TriviaContext";
 import he from 'he'
+import { QuestionCard } from "../components/QuestionCard";
 
 
 type Question = {
@@ -13,12 +14,20 @@ type Question = {
   type: string;
 };
 
+function shuffleAnswers(incorrect_answers: string[], correct_answer: string) {
+  const answers = [...incorrect_answers, correct_answer];
+  //spread para unir todo en un array
+
+  return answers.sort(() => Math.random() - 0.5)
+}
+
 export const Game = () => {
-  const { selectedDifficulty , selectedCategory} = useTriviaContext();
+  const { selectedDifficulty, selectedCategory } = useTriviaContext();
 
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
-  const [results, setResults] = useState<Question[] | undefined>([]);
+  const [results, setResults] = useState<Question[]>([]);
+
   useEffect(() => {
     const getQuestionsFromApi = async () => {
       const results = await getQuestionsApi(5, selectedCategory as number, selectedDifficulty as string)
@@ -26,25 +35,39 @@ export const Game = () => {
     }
     getQuestionsFromApi()
   }, [selectedCategory, selectedDifficulty])
-  console.log("results: ", results)
-  
 
-  if (!results) return <h1>Loading...</h1>
+  const handleNext = () => {
+    if (currentIndex <= results.length - 1) {
+      setCurrentIndex(currentIndex + 1);
+    }
+  };
+
+  console.log("results: ", results)
+
+  if (results.length === 0)
+    return <h1>Loading...</h1>
+
+  if (currentIndex >= results.length) {
+    return <h1>¡Juego terminado!</h1>;
+
+  }
 
   return (
     <>
-    {results.length && (
-      <div key={results[currentIndex].question} className="question-card">
-        <h2>{he.decode(results[currentIndex].question)}</h2>
-          {results[currentIndex].incorrect_answers.map((answer, index) => (
-            <button key={index}>{answer}</button>
-          ))}
-          <button onClick={() => setCurrentIndex(currentIndex + 1)}>{results[currentIndex].correct_answer}</button>
-      </div>
-    )}
+
+      <QuestionCard
+        question={he.decode(results[currentIndex].question)}
+        options={shuffleAnswers(
+          results[currentIndex].incorrect_answers,
+          results[currentIndex].correct_answer,
+        )}
+        onNext={handleNext}
+      />
+
     </>
-    
+
   )
 };
+
 
 export default Game

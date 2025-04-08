@@ -7,10 +7,10 @@ interface TriviaContextType {
     setSelectedDifficulty: (difficulty: string) => void;
 }
 
-const TriviaContext = createContext <TriviaContextType | undefined>(undefined);
+const TriviaContext = createContext<TriviaContextType | undefined>(undefined);
 
 // eslint-disable-next-line react-refresh/only-export-components
-export const useTriviaContext = () : TriviaContextType => {
+export const useTriviaContext = (): TriviaContextType => {
     const context = useContext(TriviaContext);
     if (!context) {
         throw new Error('useTriviaContext must be used within a TriviaProvider');
@@ -19,15 +19,17 @@ export const useTriviaContext = () : TriviaContextType => {
 }
 
 interface TriviaProviderProps {
-    children: ReactNode;}
+    children: ReactNode;
+}
 
-export const TriviaProvider : React.FC<TriviaProviderProps> = ({children}) => {
+export const TriviaProvider: React.FC<TriviaProviderProps> = ({ children }) => {
     const [selectedCategory, setSelectedCategory] = React.useState<number | null>(null);
     const [selectedDifficulty, setSelectedDifficulty] = React.useState<string | null>(null);
 
+
     return (
-        <TriviaContext.Provider 
-        value={{ selectedCategory, setSelectedCategory, selectedDifficulty, setSelectedDifficulty }}>
+        <TriviaContext.Provider
+            value={{ selectedCategory, setSelectedCategory, selectedDifficulty, setSelectedDifficulty }}>
             {children}
         </TriviaContext.Provider>
     );
