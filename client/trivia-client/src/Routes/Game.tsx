@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { getQuestionsApi } from "../api/api";
 import { useTriviaContext } from "../context/TriviaContext";
 import he from 'he'
-
+import { resetGame } from "../utils/utils";
+import { Link, useNavigate } from "react-router-dom";
 
 type Question = {
   category: string;
@@ -14,7 +15,8 @@ type Question = {
 };
 
 export const Game = () => {
-  const { selectedDifficulty , selectedCategory} = useTriviaContext();
+  const navigate = useNavigate()
+  const { selectedDifficulty , selectedCategory, setPoints, points, setSelectedCategory, setSelectedDifficulty } = useTriviaContext();
 
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
@@ -37,9 +39,16 @@ export const Game = () => {
       <div key={results[currentIndex].question} className="question-card">
         <h2>{he.decode(results[currentIndex].question)}</h2>
           {results[currentIndex].incorrect_answers.map((answer, index) => (
-            <button key={index}>{answer}</button>
+            <button key={index} /*onClick={() => resetGame(setSelectedCategory, setSelectedDifficulty, setPoints)}*/>{answer}</button>
           ))}
-          <button onClick={() => setCurrentIndex(currentIndex + 1)}>{results[currentIndex].correct_answer}</button>
+          <button onClick={() => {
+              if(currentIndex + 1 > results.length - 1) {
+                  navigate('/finish')
+              }
+              setCurrentIndex(currentIndex + 1)
+              setPoints(points + 10)
+              console.log(points)
+            }}>{results[currentIndex].correct_answer}</button>
       </div>
     )}
     </>

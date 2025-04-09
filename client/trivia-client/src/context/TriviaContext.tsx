@@ -5,6 +5,8 @@ interface TriviaContextType {
     setSelectedCategory: (category: number) => void;
     selectedDifficulty: string | null;
     setSelectedDifficulty: (difficulty: string) => void;
+    points: number;
+    setPoints: (points: number) => void;
 }
 
 const TriviaContext = createContext <TriviaContextType | undefined>(undefined);
@@ -19,15 +21,17 @@ export const useTriviaContext = () : TriviaContextType => {
 }
 
 interface TriviaProviderProps {
-    children: ReactNode;}
+    children: ReactNode;
+  }
 
 export const TriviaProvider : React.FC<TriviaProviderProps> = ({children}) => {
     const [selectedCategory, setSelectedCategory] = React.useState<number | null>(null);
     const [selectedDifficulty, setSelectedDifficulty] = React.useState<string | null>(null);
+    const [points, setPoints] = React.useState<number>(0);
 
     return (
         <TriviaContext.Provider 
-        value={{ selectedCategory, setSelectedCategory, selectedDifficulty, setSelectedDifficulty }}>
+        value={{ selectedCategory, setSelectedCategory, selectedDifficulty, setSelectedDifficulty, setPoints, points }}>
             {children}
         </TriviaContext.Provider>
     );

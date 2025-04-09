@@ -5,6 +5,7 @@ import Game from "./Routes/Game.tsx";
 import Categories from "./Routes/Categories.tsx";
 import Difficulties from "./Routes/Difficulties.tsx";
 import { TriviaProvider } from './context/TriviaContext.tsx';
+import { GameFinished } from './Routes/GameFinished.tsx';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path="/difficulties" element={<Difficulties />} />  
             <Route path="/game" element={<Game />} />
             <Route path="*" element={<h1>Página no encontrada</h1>} />
+            <Route path='/finish' element={<GameFinished />}/>
           </Routes>
       </Router>
         </TriviaProvider>

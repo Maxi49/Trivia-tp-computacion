@@ -43,12 +43,11 @@ export function generateUrl(amount: number = 5, category: number, difficulty: st
   if (difficulty) url += `&difficulty=${difficulty}`;
   url += `&type=multiple`;
 
-  
   return url;
 }
 
-/**
- * 
- * @param {string} category 
- * @returns {string} id de categoria o undefined si no encuentra la categoria especificada
- */
+export function resetGame(setSelectedCategory: (category: number) => void, setSelectedDifficulty: (difficulty: string) => void, setPoints: (points:number) => void) {
+  setPoints(0)
+  setSelectedCategory(0)
+  setSelectedDifficulty("")
+}
