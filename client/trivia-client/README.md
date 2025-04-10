@@ -53,16 +53,7 @@ export default tseslint.config({
 })
 ```
 
-# El Quizito
-
-## Descripción
-**El Quizito** es un quizz interactivo que te desafía con una variedad de preguntas. Se conecta a la API de [OpenTriviaDB](https://opentdb.com) para obtener contenido dinámico y actualizado, convirtiéndolo en una experiencia única para cada usuario.  
-Este proyecto es un trabajo práctico para la materia de Laboratorio de Computación.
-
-## Requisitos
-- Todas las dependencias están especificadas en el archivo `package.json`.
-- Para instalar todo, simplemente ejecutá un `npm install` dentro de la carpeta **trivia-client**.  
-  *No es necesario instalar nada adicional.*
+# Trabajo practico - Aplicacion de Trivia - Laboratorio de computacion
 
 # 🎮 El Quizito - ¡Demuestra tu conocimiento! 🌟
 
@@ -86,6 +77,8 @@ Este proyecto es un trabajo práctico para la materia de Laboratorio de Computac
 ## 📦 Requisitos
 - Node.js >= 16.0.0
 - NPM >= 7.0.0
+
+##  Instalacion
 
 ```bash
 node --version
@@ -116,3 +109,27 @@ npm run dev
 ┣ 📜 index.html
 ┣ 📜 package.json
 ┗ 📜 vite.config.js
+```
+
+## 🛠️ Tecnologías Utilizadas
+
+<div align="center">
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin: 24px 0;">
+    <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React">
+    <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript">
+    <img src="https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E" alt="Vite">
+    <img src="https://img.shields.io/badge/CSS_Modules-000000?style=for-the-badge&logo=css3&logoColor=white" alt="CSS Modules">
+    <img src="https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white" alt="Axios">
+    <img src="https://img.shields.io/badge/OpenTrivia_API-009688?style=for-the-badge&logo=api&logoColor=white" alt="OpenTrivia API">
+  </div>
+</div>
+
+**Stack completo**:
+- **Frontend**: React 18 + TypeScript
+- **Bundler**: Vite (ultrarrápido ⚡)
+- **Estilos**: CSS Modules para componentes encapsulados
+- **Gestión de estado**: React Context API
+- **HTTP Client**: Axios para llamadas a la API
+- **Enrutamiento**: React Router DOM v6
+- **Tipado fuerte**: TypeScript para mejor mantenibilidad
+
