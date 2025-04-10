@@ -1,49 +1,42 @@
 export const categories: Record<string, number | object> = {
-  "general knowledge": 9,
-  "entertainment": {
-    "books": 10,
-    "film": 11,
-    "music": 12,
-    "musical & theatres": 13,
-    "television": 14,
-    "video games": 15,
-    "board games": 16,
-    "comics": 29,
-    "japanese anime & manga": 31,
-    "cartoons & animations": 32,
+  "General knowledge": 9,
+  "Entertainment": {
+    "Books": 10,
+    "Film": 11,
+    "Music": 12,
+    "Musical & theatres": 13,
+    "Television": 14,
+    "Video games": 15,
+    "Board games": 16,
+    "Comics": 29,
+    "Japanese anime & manga": 31,
+    "Cartoons & animations": 32,
   },
-  "science & nature": 17,
-  "science" : {
+  "Science & nature": 17,
+  "Science": {
     "computers": 18,
     "mathematics": 19,
     "gadgets": 30
   },
-  "mythology": 20,
-  "sports": 21,
-  "geography": 22,
-  "history": 23,
-  "politics": 24,
-  "art": 25,
-  "celebrities": 26,
-  "animals": 27,
-  "vehicles": 28
+  "Mythology": 20,
+  "Sports": 21,
+  "Geography": 22,
+  "History": 23,
+  "Politics": 24,
+  "Art": 25,
+  "Celebrities": 26,
+  "Animals": 27,
+  "Vehicles": 28
 }
 
-/**
- * 
- * @param {number} amount cantidad de preguntas a solicitar
- * @param {number} category categoria de las preguntas
- * @param {string} difficulty dificultad de las preguntas
- * @returns {string} url completa para la solicitud 
- */
-export function generateUrl(amount: number = 5, category: number, difficulty: string) {   
+export function generateUrl(amount: number = 5, category: number, difficulty: string) {
   let url = `https://opentdb.com/api.php?amount=${amount}`;
-  
+
   if (category) url += `&category=${category}`;
   if (difficulty) url += `&difficulty=${difficulty}`;
   url += `&type=multiple`;
 
-  
+
   return url;
 }
 

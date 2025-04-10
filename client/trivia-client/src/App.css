@@ -5,12 +5,6 @@
   text-align: center;
 }
 
-.category-card {
-  background-color: rgb(0, 0, 0);
-  cursor: pointer;
-  padding: 10px;
-  margin: 10px
-}
 
 .difficulty-card {
   cursor: pointer;

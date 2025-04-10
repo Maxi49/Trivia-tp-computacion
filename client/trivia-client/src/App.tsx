@@ -9,17 +9,17 @@ import { TriviaProvider } from './context/TriviaContext.tsx';
 function App() {
   return (
     <>
-        <TriviaProvider>
-      <Router>
+      <TriviaProvider>
+        <Router>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/categories" element={<Categories />} />
-            <Route path="/difficulties" element={<Difficulties />} />  
+            <Route path="/difficulties" element={<Difficulties />} />
             <Route path="/game" element={<Game />} />
             <Route path="*" element={<h1>Página no encontrada</h1>} />
           </Routes>
-      </Router>
-        </TriviaProvider>
+        </Router>
+      </TriviaProvider>
     </>
   );
 }

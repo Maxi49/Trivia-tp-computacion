@@ -1,0 +1,81 @@
+/* Contenedor principal */
+
+.category-all {
+    position: fixed;
+    inset: 0;
+    background-color: #276786;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.category-title {
+    font-family: 'Luckiest Guy', cursive;
+    margin-top: 4%;
+    font-size: 40px;
+    color: #fff;
+    text-shadow:
+        -1px -1px 0 #0f212b,
+        3px -1px 0 #0f212b,
+        -3px 3px 0 #0f212b,
+        3px 3px 0 #0f212b;
+}
+
+.category-card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 1000px;
+    padding: 2rem;
+}
+
+/* Título principal */
+.categories-title {
+    text-align: center;
+    font-family: 'Luckiest Guy', cursive;
+    color: #fff8f0;
+    margin-top: 2rem;
+    text-shadow: 2px 2px #00000033;
+}
+
+/* Tarjeta individual */
+.category-card-link {
+    text-decoration: none;
+}
+
+.category-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e25c44;
+    border-radius: 1.8rem;
+    padding: 1rem 0.5rem;
+    height: 50px;
+    /* altura fija para uniformidad */
+    box-shadow: 0 6px 0 #973d2e;
+    text-align: center;
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #fff;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    max-width: 500px;
+    /* 👈 esto limita el ancho */
+    margin: 0 auto;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 0 #e76f51;
+}
+
+.category-card-text {
+    display: block;
+    padding: 0.5rem 0;
+    word-break: break-word;
+}
