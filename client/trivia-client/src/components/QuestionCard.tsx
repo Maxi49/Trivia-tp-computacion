@@ -4,25 +4,30 @@ type Props = {
   options: string[];
   onNext: () => void;
   correct_answer: string;
-
+  score: number,
+  setScore: (score: number) => void
 };
 
-export function QuestionCard({ question, options, onNext, correct_answer }: Props) {
+export function QuestionCard({ question, options, onNext, correct_answer, setScore, score }: Props) {
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
 
   const handleClick = (option: string) => {
     setSelectedOption(option);
-
-    setTimeout(() => {
+    if(option === correct_answer) {
+      setScore(score + 10)
+    }
+    const timeOut = setTimeout(() => {
       onNext()
       setSelectedOption(null)
     }, 1000);
+
+    return () => clearTimeout(timeOut); 
   }
 
   const getButtonClass = (option: string) => {
     if (!selectedOption) return "answer-button";
 
-    if (option === correct_answer)
+    if (option === correct_answer) 
       return "answer-button correct";
     else
       return "answer-button incorrect";
