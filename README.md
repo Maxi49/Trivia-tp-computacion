@@ -12,6 +12,20 @@
   <img src="https://media.giphy.com/media/l0MYEqEzwMWFCg8rm/giphy.gif" width="400" alt="Demo Quiz">
 </div>
 
+
+## ✨ Características
+- 🎯 Preguntas aleatorias de múltiples categorías
+- 🌐 Conexión a la API de OpenTriviaDB
+- 📊 Resultados detallados al finalizar
+- ⚙️ Configuración de dificultad y categoría
+- 🎨 Interfaz intuitiva y responsive
+
+## 📦 Requisitos
+- Node.js >= 16.0.0
+- NPM >= 7.0.0
+
+## 🛠️ Tecnologías Utilizadas
+
 <div align="center">
   <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin: 24px 0;">
     <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React">
@@ -31,17 +45,6 @@
 - **HTTP Client**: Axios para llamadas a la API
 - **Enrutamiento**: React Router DOM v6
 - **Tipado fuerte**: TypeScript para mejor mantenibilidad
-
-## ✨ Características
-- 🎯 Preguntas aleatorias de múltiples categorías
-- 🌐 Conexión a la API de OpenTriviaDB
-- 📊 Resultados detallados al finalizar
-- ⚙️ Configuración de dificultad y categoría
-- 🎨 Interfaz intuitiva y responsive
-
-## 📦 Requisitos
-- Node.js >= 16.0.0
-- NPM >= 7.0.0
 
 ```bash
 node --version
