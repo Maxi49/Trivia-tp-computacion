@@ -52,3 +52,67 @@ export default tseslint.config({
   },
 })
 ```
+
+# El Quizito
+
+## Descripción
+**El Quizito** es un quizz interactivo que te desafía con una variedad de preguntas. Se conecta a la API de [OpenTriviaDB](https://opentdb.com) para obtener contenido dinámico y actualizado, convirtiéndolo en una experiencia única para cada usuario.  
+Este proyecto es un trabajo práctico para la materia de Laboratorio de Computación.
+
+## Requisitos
+- Todas las dependencias están especificadas en el archivo `package.json`.
+- Para instalar todo, simplemente ejecutá un `npm install` dentro de la carpeta **trivia-client**.  
+  *No es necesario instalar nada adicional.*
+
+# 🎮 El Quizito - ¡Demuestra tu conocimiento! 🌟
+
+[![React](https://img.shields.io/badge/React-18.2.0-blue.svg)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-4.4.5-purple.svg)](https://vitejs.dev/)
+[![OpenTriviaDB](https://img.shields.io/badge/API-OpenTriviaDB-success.svg)](https://opentdb.com/)
+
+¡Bienvenido/a a **El Quizito**! Un trivia interactiva con preguntas dinámicas que desafiarán tu conocimiento. ¡Perfecto para aprender y divertirse!
+
+<div align="center">
+  <img src="https://media.giphy.com/media/l0MYEqEzwMWFCg8rm/giphy.gif" width="400" alt="Demo Quiz">
+</div>
+
+## ✨ Características
+- 🎯 Preguntas aleatorias de múltiples categorías
+- 🌐 Conexión a la API de OpenTriviaDB
+- 📊 Resultados detallados al finalizar
+- ⚙️ Configuración de dificultad y categoría
+- 🎨 Interfaz intuitiva y responsive
+
+## 📦 Requisitos
+- Node.js >= 16.0.0
+- NPM >= 7.0.0
+
+```bash
+node --version
+# Verifica tu versión de Node
+
+## 1️⃣ Clona tu repositorio
+git clone https://github.com/tu-usuario/el-quizito.git
+
+## 2️⃣ Accede al directorio del proyecto
+cd client/trivia-client
+
+## 3️⃣ Instala las dependencias
+npm install
+
+##m 4️⃣ Inicia la aplicacion
+npm run dev
+
+| 💡 Tip: La aplicación se abrirá automáticamente en http://localhost:5173
+
+📦 client/trivia-client
+┣ 📂 src
+┃ ┣ 📂 api         # Conexión con la API
+┃ ┣ 📂 components  # Componentes reutilizables
+┃ ┣ 📂 context     # Gestión de estado global
+┃ ┣ 📂 routes      # Configuración de rutas
+┃ ┗ 📂 utils       # Funciones auxiliares
+┣ 📜 .gitignore
+┣ 📜 index.html
+┣ 📜 package.json
+┗ 📜 vite.config.js

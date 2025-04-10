@@ -46,9 +46,3 @@ export function generateUrl(amount: number = 5, category: number, difficulty: st
   
   return url;
 }
-
-/**
- * 
- * @param {string} category 
- * @returns {string} id de categoria o undefined si no encuentra la categoria especificada
- */
