@@ -47,7 +47,7 @@ export function QuestionCard({ question, options, onNext, correct_answer, setSco
             onClick={() => handleClick(option)}
             disabled={!!selectedOption} // Desactiva todos los botones una vez que se clickea uno
           >
-            {option}
+            {he.decode(option)}
           </button>
         ))}
       </div>
