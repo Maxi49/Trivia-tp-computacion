@@ -1,4 +1,6 @@
 import { useState } from "react"
+import he from 'he'
+
 type Props = {
   question: string;
   options: string[];
@@ -36,7 +38,7 @@ export function QuestionCard({ question, options, onNext, correct_answer, setSco
 
   return (
     <div className="question-card">
-      <div>{question}</div>
+      <div>{he.decode(question)}</div>
       <div>
         {options.map((option) => (
           <button

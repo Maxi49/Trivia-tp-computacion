@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { getQuestionsApi } from "../api/api";
 import { useTriviaContext } from "../context/TriviaContext";
-import he from 'he'
 import { QuestionCard } from "../components/QuestionCard";
 import { FinalPage } from "../components/FinalPage";
 
@@ -67,7 +66,7 @@ export const Game = () => {
     <>
 
       <QuestionCard
-        question={he.decode(results[questionIndex].question)}
+        question={results[questionIndex].question}
         options={shuffledAnswers?.options || []}
         correct_answer={shuffledAnswers?.correct || ""}
         onNext={handleNext}
