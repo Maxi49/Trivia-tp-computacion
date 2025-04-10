@@ -49,8 +49,6 @@ export const TriviaProvider: React.FC<TriviaProviderProps> = ({ children }) => {
       setQuestionIndex(0);
       setScore(0);
       setResults([]);
-      // Opcional: Podés mantener la dificultad y categoría si se quiere volver a jugar con lo mismo
-      // o también resetearlas dependiendo de la lógica de juego.
     };
 
 
