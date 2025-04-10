@@ -29,13 +29,6 @@ export const categories: Record<string, number | object> = {
   "vehicles": 28
 }
 
-/**
- * 
- * @param {number} amount cantidad de preguntas a solicitar
- * @param {number} category categoria de las preguntas
- * @param {string} difficulty dificultad de las preguntas
- * @returns {string} url completa para la solicitud 
- */
 export function generateUrl(amount: number = 5, category: number, difficulty: string) {   
   let url = `https://opentdb.com/api.php?amount=${amount}`;
   
