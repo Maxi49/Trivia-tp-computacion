@@ -21,6 +21,7 @@ interface TriviaContextType {
     results: Array<Question>;
     setResults: (questions: Array<Question>) => void;
     resetGame: () => void;
+    restartRound: () => void;
 }
 
 const TriviaContext = createContext<TriviaContextType | undefined>(undefined);
@@ -46,8 +47,16 @@ export const TriviaProvider: React.FC<TriviaProviderProps> = ({ children }) => {
     const [results, setResults] = React.useState<Array<Question>>([]);
 
     const resetGame = () => {
+        setSelectedCategory(null)
+        setSelectedDifficulty(null)
         setQuestionIndex(0);
         setScore(0);
+        setResults([]);
+    };
+
+    const restartRound = () => {
+        setScore(0);
+        setQuestionIndex(0);
         setResults([]);
     };
 
@@ -58,7 +67,8 @@ export const TriviaProvider: React.FC<TriviaProviderProps> = ({ children }) => {
                 selectedCategory, setSelectedCategory, selectedDifficulty, setSelectedDifficulty, score, setScore,
                 questionIndex, setQuestionIndex,
                 results, setResults,
-                resetGame
+                resetGame,
+                restartRound,
             }}>
             {children}
         </TriviaContext.Provider>

@@ -1,0 +1,75 @@
+.all-difficulties-container {
+    position: fixed;
+    inset: 0;
+    background-color: #276786;
+}
+
+.difficulty-title {
+    font-family: 'Luckiest Guy', cursive;
+    margin-top: 4%;
+    font-size: 40px;
+    color: #fff;
+    text-shadow:
+        -1px -1px 0 #0f212b,
+        3px -1px 0 #0f212b,
+        -3px 3px 0 #0f212b,
+        3px 3px 0 #0f212b;
+}
+
+.difficulty-button {
+    text-transform: capitalize;
+    color: white;
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    padding: 1rem 2.5rem;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+    text-align: center;
+
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.difficulty-button.easy {
+    background-color: #499A6E;
+    box-shadow: 0 8px 0 #245038;
+}
+
+.difficulty-button.easy:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 11px 0 #153a26;
+}
+
+.difficulty-button.medium {
+    background-color: #F7B03E;
+    box-shadow: 0 8px 0 #a37833;
+}
+
+.difficulty-button.medium:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 11px 0 #614518;
+}
+
+.difficulty-button.hard {
+    background-color: #F35E42;
+    box-shadow: 0 8px 0 #9c3d2c;
+}
+
+.difficulty-button.hard:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 11px 0 #61251b;
+}
+
+
+
+
+
+.buttons-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+
+}

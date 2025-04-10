@@ -1,5 +1,6 @@
 import { useTriviaContext } from "../context/TriviaContext";
 import { Link } from "react-router-dom";
+import "../Difficulties.css"
 
 type DifficultyCard = {
   difficulty: string;
@@ -7,32 +8,34 @@ type DifficultyCard = {
 };
 
 function DifficultyCard({ difficulty, onSelectDifficulty }: DifficultyCard) {
-
   return (
     <Link to="/Game">
-      <div className="difficulty-card" onClick={() => onSelectDifficulty(difficulty)}>
+      <button
+        className={`difficulty-button ${difficulty}`}
+        onClick={() => onSelectDifficulty(difficulty)}
+      >
         {difficulty}
-      </div>
+      </button>
     </Link>
-  )
+  );
 }
-
 export const Difficulties = () => {
-  const { selectedDifficulty, setSelectedDifficulty } = useTriviaContext();
+  const { setSelectedDifficulty } = useTriviaContext();
 
   const difficulties = ["easy", "medium", "hard"];
 
   return (
-    <section>
-      <h2>Selecciona una dificultad</h2>
-      {difficulties.map((difficulty) => (
-        <DifficultyCard
-          key={difficulty}
-          difficulty={difficulty}
-          onSelectDifficulty={() => setSelectedDifficulty(difficulty)}
-        />
-      ))}
-      {selectedDifficulty && <p>Dificultad seleccionada: {selectedDifficulty}</p>}
+    <section className="all-difficulties-container">
+      <h1 className="difficulty-title">DIFICULTAD</h1>
+      <div className="buttons-container">
+        {difficulties.map((difficulty) => (
+          <DifficultyCard
+            key={difficulty}
+            difficulty={difficulty}
+            onSelectDifficulty={() => setSelectedDifficulty(difficulty)}
+          />
+        ))}
+      </div>
     </section>
   );
 };
