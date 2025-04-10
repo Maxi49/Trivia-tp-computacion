@@ -1,18 +1,8 @@
 import { useEffect, useState } from "react";
 import { getQuestionsApi } from "../api/api";
 import { useTriviaContext } from "../context/TriviaContext";
-import he from 'he'
 import { QuestionCard } from "../components/QuestionCard";
-
-
-type Question = {
-  category: string;
-  correct_answer: string;
-  difficulty: string;
-  incorrect_answers: string[];
-  question: string;
-  type: string;
-};
+import { FinalPage } from "../components/FinalPage";
 
 function shuffleAnswers(incorrect_answers: string[], correct_answer: string) {
   const answers = [...incorrect_answers, correct_answer];
@@ -25,23 +15,41 @@ function shuffleAnswers(incorrect_answers: string[], correct_answer: string) {
 }
 
 export const Game = () => {
-  const { selectedDifficulty, selectedCategory } = useTriviaContext();
-
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
-
-  const [results, setResults] = useState<Question[]>([]);
+  const { selectedDifficulty, selectedCategory, score, setScore, questionIndex, setQuestionIndex, results, setResults } = useTriviaContext();
+  const [shuffledAnswers, setShuffledAnswers] = useState<{ options: string[]; correct: string } | null>(null);
 
   useEffect(() => {
     const getQuestionsFromApi = async () => {
-      const results = await getQuestionsApi(5, selectedCategory as number, selectedDifficulty as string)
-      setResults(results)
-    }
-    getQuestionsFromApi()
-  }, [selectedCategory, selectedDifficulty])
+      try {
+        const results = await getQuestionsApi(5, selectedCategory as number, selectedDifficulty as string);
+        setResults(results);
+      } catch (error) {
+        console.error("Error fetching questions:", error);
+      }
+    };
+    
+    const timeoutId = setTimeout(() => {
+      getQuestionsFromApi();
+    }, 1000); 
+    
+    return () => clearTimeout(timeoutId); 
+  }, [selectedCategory, selectedDifficulty, results, setResults]);
+  
+  useEffect(() => {
+      if (results.length > 0 && questionIndex < results.length) {
+        setShuffledAnswers(shuffleAnswers(
+          results[questionIndex].incorrect_answers,
+          results[questionIndex].correct_answer
+        ));
+      }
+  }, [questionIndex, results]);
 
   const handleNext = () => {
-    if (currentIndex <= results.length - 1) {
-      setCurrentIndex(currentIndex + 1);
+    if (questionIndex <= results.length - 1) {
+      setQuestionIndex(questionIndex + 1);
+    }
+    else {
+      setQuestionIndex(results.length)
     }
   };
 
@@ -50,25 +58,20 @@ export const Game = () => {
   if (results.length === 0)
     return <h1>Loading...</h1>
 
-  if (currentIndex >= results.length) {
-    return <h1>¡Juego terminado!</h1>;
-
+  if (questionIndex >= results.length) {
+    return <FinalPage />;
   }
-
-  const { options, correct } = shuffleAnswers(
-    results[currentIndex].incorrect_answers,
-    results[currentIndex].correct_answer
-  );
-
 
   return (
     <>
 
       <QuestionCard
-        question={he.decode(results[currentIndex].question)}
-        options={options}
-        correct_answer={correct}
+        question={results[questionIndex].question}
+        options={shuffledAnswers?.options || []}
+        correct_answer={shuffledAnswers?.correct || ""}
         onNext={handleNext}
+        setScore={setScore}
+        score={score}
       />
 
     </>
