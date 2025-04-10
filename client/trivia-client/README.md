@@ -85,16 +85,16 @@ node --version
 # Verifica tu versión de Node
 
 ## 1️⃣ Clona tu repositorio
-git clone https://github.com/tu-usuario/el-quizito.git
+    git clone https://github.com/Maxi49/Trivia-tp-computacion.git
 
 ## 2️⃣ Accede al directorio del proyecto
-cd client/trivia-client
+    cd client/trivia-client
 
 ## 3️⃣ Instala las dependencias
-npm install
+    npm install
 
-##m 4️⃣ Inicia la aplicacion
-npm run dev
+## 4️⃣ Inicia la aplicacion
+    npm run dev
 
 | 💡 Tip: La aplicación se abrirá automáticamente en http://localhost:5173
 

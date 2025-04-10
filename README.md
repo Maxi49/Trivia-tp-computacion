@@ -1,17 +1,8 @@
-# Trabajo practico - Aplicacion de Trivia - Laboratorio de computacion
-
-# 🎮 El Quizito - ¡Demuestra tu conocimiento! 🌟
-
-[![React](https://img.shields.io/badge/React-18.2.0-blue.svg)](https://react.dev/)
-[![Vite](https://img.shields.io/badge/Vite-4.4.5-purple.svg)](https://vitejs.dev/)
-[![OpenTriviaDB](https://img.shields.io/badge/API-OpenTriviaDB-success.svg)](https://opentdb.com/)
-
 ¡Bienvenido/a a **El Quizito**! Un trivia interactiva con preguntas dinámicas que desafiarán tu conocimiento. ¡Perfecto para aprender y divertirse!
 
 <div align="center">
   <img src="https://media.giphy.com/media/l0MYEqEzwMWFCg8rm/giphy.gif" width="400" alt="Demo Quiz">
 </div>
-
 
 ## ✨ Características
 - 🎯 Preguntas aleatorias de múltiples categorías
@@ -31,16 +22,16 @@ node --version
 # Verifica tu versión de Node
 
 ## 1️⃣ Clona tu repositorio
-git clone https://github.com/tu-usuario/el-quizito.git
+    git clone https://github.com/Maxi49/Trivia-tp-computacion.git
 
 ## 2️⃣ Accede al directorio del proyecto
-cd client/trivia-client
+    cd client/trivia-client
 
 ## 3️⃣ Instala las dependencias
-npm install
+    npm install
 
-##m 4️⃣ Inicia la aplicacion
-npm run dev
+## 4️⃣ Inicia la aplicacion
+    npm run dev
 
 | 💡 Tip: La aplicación se abrirá automáticamente en http://localhost:5173
 
