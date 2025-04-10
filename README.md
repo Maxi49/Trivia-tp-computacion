@@ -1,3 +1,7 @@
+# Trabajo practico computacion - Aplicacion de Trivia
+
+# 🎮 El Quizito - ¡Demuestra tu conocimiento! 🌟
+
 ¡Bienvenido/a a **El Quizito**! Un trivia interactiva con preguntas dinámicas que desafiarán tu conocimiento. ¡Perfecto para aprender y divertirse!
 
 <div align="center">
