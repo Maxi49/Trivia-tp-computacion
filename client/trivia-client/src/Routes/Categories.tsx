@@ -1,14 +1,20 @@
 
 import { Link } from "react-router-dom";
 import { useTriviaContext } from "../context/TriviaContext";
-import { categories } from "../utils/utils";
 import "../Categories.css"
+import { useEffect, useState } from "react";
+import { getCategories } from "../api/api";
 
 type CategoryCardProps = {
     categoryName: string;
     id: number;
     onSelectCategory: (id: number) => void;
 };
+
+export type Category = {
+  name: string;
+  id: number;
+}
 
 function CategoryCard({ categoryName, id, onSelectCategory }: CategoryCardProps) {
     return (
@@ -22,54 +28,43 @@ function CategoryCard({ categoryName, id, onSelectCategory }: CategoryCardProps)
 }
 
 export const Categories = () => {
+  const [categories, setCategories] = useState< Array<Category> | null>([])
+  
+  const { selectedCategory, setSelectedCategory } = useTriviaContext();
 
-    const { setSelectedCategory } = useTriviaContext();
+  useEffect(() => {
+    const categories = async() => {
+      setCategories(await getCategories())
+    }
+    categories()
+  }, [selectedCategory, setSelectedCategory])
 
+  if(categories == null) {
+    return <h1>Loading</h1>
+  }
+    console.log(categories)
     return (
         <>
             <div className="category-all">
                 <h1 className="category-title">CATEGORIAS</h1>
                 <section className="category-card-container">
-                    {Object.entries(categories).map(([categoryName, id]) => {
-                        // Si el valor es un número, renderizamos la categoría normalmente
-                        if (typeof id === "number") {
-                            return (
-                                <CategoryCard
-                                    key={id}
-                                    categoryName={categoryName}
-                                    id={id}
-                                    onSelectCategory={(id) => {
-                                        setSelectedCategory(id)
-                                    }
+                    {
+                      categories.map(c => (
+                            <CategoryCard
+                              key={c.id}
+                              categoryName={c.name}
+                                id={c.id}
+                                onSelectCategory={() => setSelectedCategory(c.id)
+                              }
+                            />
+                      ))
 
-                                    }
-                                />
-                            );
-                        }
-
-                        // Si el valor es un objeto, recorremos sus subcategorías
-                        if (typeof id === "object") {
-                            return Object.entries(id).map(([subCategoryName, subId]) => (
-                                <CategoryCard
-                                    key={subId as number} // Forzamos el tipo, ya que sabemos que será un número
-                                    categoryName={`${subCategoryName}`} // "entretenimiento - música"
-                                    id={subId as number}
-                                    onSelectCategory={(id) => setSelectedCategory(id)}
-                                />
-                            ));
-                        }
-
-                        return null;
-                    })}
-
+                    }
                 </section>
             </div>
         </>
     );
 
 };
-
-
-
 
 export default Categories
