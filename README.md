@@ -74,3 +74,4 @@ node --version
 - **Enrutamiento**: React Router DOM v6
 - **Tipado fuerte**: TypeScript para mejor mantenibilidad
 
+## 🫂 Leer contribuidores
