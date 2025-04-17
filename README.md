@@ -29,7 +29,8 @@ node --version
     git clone https://github.com/Maxi49/Trivia-tp-computacion.git
 
 ## 2️⃣ Accede al directorio del proyecto
-    cd client/trivia-client
+    cd client
+    cd trivia-client
 
 ## 3️⃣ Instala las dependencias
     npm install
