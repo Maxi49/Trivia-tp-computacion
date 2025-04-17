@@ -1,5 +1,6 @@
 import { useState } from "react"
 import he from "he"
+import "../Game.css"
 type Props = {
   question: string;
   options: string[];
@@ -36,19 +37,21 @@ export function QuestionCard({ question, options, onNext, correct_answer, setSco
   };
 
   return (
-    <div className="question-card">
-      <div>{he.decode(question)}</div>
-      <div>
-        {options.map((option) => (
-          <button
-            key={option}
-            className={getButtonClass(option)}
-            onClick={() => handleClick(option)}
-            disabled={!!selectedOption} // Desactiva todos los botones una vez que se clickea uno
-          >
-            {he.decode(option)}
-          </button>
-        ))}
+    <div className="container-all">
+      <div className="question-card">
+        <div className="question">{he.decode(question)}</div>
+        <div>
+          {options.map((option) => (
+            <button
+              key={option}
+              className={getButtonClass(option)}
+              onClick={() => handleClick(option)}
+              disabled={!!selectedOption} // Desactiva todos los botones una vez que se clickea uno
+            >
+              {he.decode(option)}
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );

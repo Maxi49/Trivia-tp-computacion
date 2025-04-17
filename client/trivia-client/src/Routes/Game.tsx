@@ -3,6 +3,7 @@ import { getQuestionsApi } from "../api/api";
 import { useTriviaContext } from "../context/TriviaContext";
 import { QuestionCard } from "../components/QuestionCard";
 import { FinalPage } from "../components/FinalPage";
+import "../Game.css"
 
 function shuffleAnswers(incorrect_answers: string[], correct_answer: string) {
   const answers = [...incorrect_answers, correct_answer];
@@ -79,7 +80,11 @@ export const Game = () => {
   };
 
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return (
+    <div className="container-all">
+      <h1 className="question">Loading...</h1>;
+    </div>
+    )
   }
 
   if (questionIndex >= results.length) {

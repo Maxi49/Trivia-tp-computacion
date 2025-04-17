@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import { useTriviaContext } from "../context/TriviaContext"
-
+import "../Game.css"
 const enum Options {
   START = 'start',
   REPEAT = 'repeat'
@@ -27,14 +27,14 @@ export function FinalPage() {
 
 
   return (
-    <section className="final-page">
+    <section className="container-all">
+      <div className="question-card">
+        <h1>Your final score is</h1>
+        <h1>{score}</h1>
 
-      <h1>Your final score is</h1>
-      <h1>{score}</h1>
-
-      <button onClick={() => handleOption(Options.START)}> Play Again </button>
-      <button onClick={() => handleOption(Options.REPEAT)}> Restart</button>
-
+        <button className="answer-button" onClick={() => handleOption(Options.START)}> Play Again </button>
+        <button className="answer-button" onClick={() => handleOption(Options.REPEAT)}> Restart</button>
+      </div>
     </section>
   )
 }
