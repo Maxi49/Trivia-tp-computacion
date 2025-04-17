@@ -53,13 +53,9 @@ export default tseslint.config({
 })
 ```
 
-# Trabajo practico - Aplicacion de Trivia - Laboratorio de computacion
+# Trabajo practico computacion - Aplicacion de Trivia
 
 # 🎮 El Quizito - ¡Demuestra tu conocimiento! 🌟
-
-[![React](https://img.shields.io/badge/React-18.2.0-blue.svg)](https://react.dev/)
-[![Vite](https://img.shields.io/badge/Vite-4.4.5-purple.svg)](https://vitejs.dev/)
-[![OpenTriviaDB](https://img.shields.io/badge/API-OpenTriviaDB-success.svg)](https://opentdb.com/)
 
 ¡Bienvenido/a a **El Quizito**! Un trivia interactiva con preguntas dinámicas que desafiarán tu conocimiento. ¡Perfecto para aprender y divertirse!
 
@@ -84,19 +80,23 @@ export default tseslint.config({
 node --version
 # Verifica tu versión de Node
 
-## 1️⃣ Clona tu repositorio
+## 1️⃣ Clona el repositorio
     git clone https://github.com/Maxi49/Trivia-tp-computacion.git
 
 ## 2️⃣ Accede al directorio del proyecto
-    cd client/trivia-client
+    cd client
+    cd trivia-client
 
 ## 3️⃣ Instala las dependencias
     npm install
 
-## 4️⃣ Inicia la aplicacion
-    npm run dev
+## 4️⃣ Crea la carpeta Dist
+    npm run build
 
-| 💡 Tip: La aplicación se abrirá automáticamente en http://localhost:5173
+## 5️⃣ Inicializa el proyecto en preview
+    npm run preview
+
+| 💡 Tip: La aplicación se abrirá automáticamente en http://localhost:4173/
 
 📦 client/trivia-client
 ┣ 📂 src
@@ -133,3 +133,4 @@ node --version
 - **Enrutamiento**: React Router DOM v6
 - **Tipado fuerte**: TypeScript para mejor mantenibilidad
 
+## 🫂 Leer contribuidores
