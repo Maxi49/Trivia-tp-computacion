@@ -25,7 +25,7 @@
 node --version
 # Verifica tu versión de Node
 
-## 1️⃣ Clona tu repositorio
+## 1️⃣ Clona el repositorio
     git clone https://github.com/Maxi49/Trivia-tp-computacion.git
 
 ## 2️⃣ Accede al directorio del proyecto
@@ -34,10 +34,13 @@ node --version
 ## 3️⃣ Instala las dependencias
     npm install
 
-## 4️⃣ Inicia la aplicacion
-    npm run dev
+## 4️⃣ Crea la carpeta Dist
+    npm run build
 
-| 💡 Tip: La aplicación se abrirá automáticamente en http://localhost:5173
+## 5️⃣ Inicializa el proyecto en preview
+    npm run preview
+
+| 💡 Tip: La aplicación se abrirá automáticamente en http://localhost:4173/
 
 📦 client/trivia-client
 ┣ 📂 src
